@@ -2,7 +2,7 @@ package com.example.project2.models
 
 import com.google.gson.annotations.SerializedName
 
-class RegistrationResponse(
+data class RegistrationResponse(
     var name:String,
 
     var password: String,
