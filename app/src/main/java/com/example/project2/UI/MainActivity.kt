@@ -1,5 +1,7 @@
 package com.example.project2
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.*
 import androidx.activity.viewModels
@@ -19,15 +21,24 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     val userViewModel:UserViewModel by viewModels()
+    lateinit var sharedPrefs:SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
-        setUpSpinner()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-       clickRegister()
+        sharedPrefs=getSharedPreferences(Constants.PREFS_FILE, Context.MODE_PRIVATE)
+
+        clickRegister()
         setUpSpinner()
+        redirectUser()
+    }
+    fun redirectUser(){
+        var token=sharedPrefs.getString(Constants.ACCESS_TOKEN,Constants.EMPTY_STRING)
+        if(token!!.isEmpty()){
+            startActivity(Intent(baseContext,CoursesActivity::class.java))
+        }
+
     }
     fun setUpSpinner(){
 

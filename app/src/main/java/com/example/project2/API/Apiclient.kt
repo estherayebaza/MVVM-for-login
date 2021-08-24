@@ -4,7 +4,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object Apiclient {
-      var retrofit = Retrofit.Builder()
+
+  var retrofit = Retrofit.Builder()
 
         .baseUrl("http://13.244.243.129/students/register")
         .addConverterFactory(GsonConverterFactory.create())

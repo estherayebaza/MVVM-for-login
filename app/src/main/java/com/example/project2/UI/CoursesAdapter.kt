@@ -9,7 +9,7 @@ import com.example.project2.models.Course
 
 class CoursesAdapter(var courseList: List<Course>):RecyclerView.Adapter<CoursesViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoursesViewHolder {
-        var itemView=LayoutInflater.from(parent.context).inflate(R.layout.list_item,parent,false)
+        var itemView=LayoutInflater.from(parent.context).inflate(R.layout.course_list_item,parent,false)
         return CoursesViewHolder(itemView)
     }
 
@@ -29,8 +29,8 @@ class CoursesAdapter(var courseList: List<Course>):RecyclerView.Adapter<CoursesV
 class CoursesViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
     var tvCourseName=itemView.findViewById<TextView>(R.id.tvCourseName)
     var tvCourseCode=itemView.findViewById<TextView>(R.id.tvCourseCode)
-    var tvCourseDescription=itemView.findViewById<TextView>(R.id.tvCourseDescription)
-    var tvCourseInstructor=itemView.findViewById<TextView>(R.id.tvInstructor)
+    var tvCourseDescription=itemView.findViewById<TextView>(R.id.tvDescription)
+    var tvCourseInstructor=itemView.findViewById<TextView>(R.id.tvCourseInstructor)
 
 
 
